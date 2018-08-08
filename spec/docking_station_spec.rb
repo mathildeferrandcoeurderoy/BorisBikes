@@ -1,7 +1,7 @@
 require "docking_station"
 
 describe DockingStation do
-  it "should give response" do
-    expect(docking_station = DockingStation.new, docking_station.release_bike).to eq "bike released"
+  it "releases a bike" do
+    expect(subject).to respond_to :release_bike
   end
 end
