@@ -1,8 +1,13 @@
 require "docking_station"
 
 describe DockingStation do
-  it "releases a bike" do
-    expect(subject).to respond_to :release_bike
+
+  describe '#release_bike' do
+    it "releases a bike" do
+      bike = Bike.new
+      subject.dock(bike)
+      expect(subject.release_bike).to eq bike
+    end
   end
 
   it "releases working bikes" do
