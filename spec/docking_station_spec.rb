@@ -9,4 +9,8 @@ describe DockingStation do
     bike = subject.release_bike
     expect(bike).to be_working
   end
+<<<<<<< HEAD
 end
+=======
+end
+>>>>>>> 01fb34badab4b384c18419671a6ba6a41ce4b60c
