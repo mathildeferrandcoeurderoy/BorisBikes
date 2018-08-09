@@ -2,13 +2,12 @@ require "docking_station"
 
 describe DockingStation do
   let(:mockbike) {double :bike, working?: true}
+  subject { DockingStation.new(DockingStation::DEFAULT_SIZE) }
 
-  describe '#release_bike' do
-    it "releases a bike" do
-      #bike = Bike.new
-      subject.dock(mockbike)
-      expect(subject.release_bike).to eq mockbike
-    end
+  it "releases a bike" do
+    #bike = Bike.new
+    subject.dock(mockbike)
+    expect(subject.release_bike).to eq mockbike
   end
 
   it "releases working bikes" do
@@ -31,9 +30,9 @@ describe DockingStation do
     expect{subject.release_bike}.to raise_error("no bikes available")
   end
 
-  it 'will have a storage limit' do
-    expect(subject.capacity).to be_an(Integer)
-  end
+#  it 'will have a storage limit' do
+#   expect(subject.capacity).to be_an(Integer)
+#  end
 
   it 'will not accept a bike if full' do
     DockingStation::DEFAULT_SIZE.times { subject.dock(mockbike) }
@@ -46,5 +45,9 @@ describe DockingStation do
   # end
 
   # it {is_expected.to respond_to :station_empty?}
+
+  it 'allows capacity to be set' do
+    expect{DockingStation.new(50)}.to_not raise_error
+  end
 
 end
