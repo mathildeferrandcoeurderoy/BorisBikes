@@ -2,7 +2,7 @@ require './lib/bike'
 
 class DockingStation
 
-  attr_reader :bike, :storage
+  attr_reader :bikes
 
   DEFAULT_SIZE = 1
 
@@ -11,17 +11,17 @@ class DockingStation
   end
 
   def initialize
-    @storage = []
+    @bikes = []
   end
 
   def release_bike
-    raise "no bikes available" if @storage.length == 0
-    @storage.pop
+    raise "no bikes available" if @bikes.length == 0
+    @bikes.pop
   end
 
   def dock(bike)
-    raise "dock full" if @storage.length == capacity  
-    @storage << bike
+    raise "dock full" if @bikes.length == capacity  
+    @bikes << bike
   end
 
 

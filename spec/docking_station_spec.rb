@@ -24,7 +24,7 @@ describe DockingStation do
   it "shows bike availability" do
     #bike = Bike.new
     subject.dock(mockbike)
-    expect(subject.storage).to include(mockbike)
+    expect(subject.bikes).to include(mockbike)
   end
 
   it "will not release a bike if not available" do
