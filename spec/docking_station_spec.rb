@@ -2,7 +2,6 @@ require "docking_station"
 
 describe DockingStation do
   let(:mockbike) {double :bike, working?: true}
-  subject { DockingStation.new(DockingStation::DEFAULT_SIZE) }
 
   it "releases a bike" do
     #bike = Bike.new
@@ -35,7 +34,7 @@ describe DockingStation do
 #  end
 
   it 'will not accept a bike if full' do
-    DockingStation::DEFAULT_SIZE.times { subject.dock(mockbike) }
+    DockingStation::DEFAULT_CAPACITY.times { subject.dock(mockbike) }
     expect{subject.dock(mockbike)}.to raise_error("dock full")
   end
 
