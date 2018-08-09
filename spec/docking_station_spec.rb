@@ -36,8 +36,15 @@ describe DockingStation do
   end
 
   it 'will not accept a bike if full' do
-    subject.dock(mockbike)
+    20.times { subject.dock(mockbike) }
     expect{subject.dock(mockbike)}.to raise_error("dock full")
   end
+
+  # it 'checks if dock is full' do
+      # 20.times { subject.dock(mockbike) }
+      # expect(subject).to be_station_full
+  # end
+
+  # it {is_expected.to respond_to :station_empty?}
 
 end
