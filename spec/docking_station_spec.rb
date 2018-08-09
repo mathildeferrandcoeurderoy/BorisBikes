@@ -31,4 +31,13 @@ describe DockingStation do
     expect{subject.release_bike}.to raise_error("no bikes available")
   end
 
+  it 'will have a storage limit' do
+    expect(subject.capacity).to be_an(Integer)
+  end
+
+  it 'will not accept a bike if full' do
+    subject.dock(mockbike)
+    expect{subject.dock(mockbike)}.to raise_error("dock full")
+  end
+
 end
