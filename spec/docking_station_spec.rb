@@ -36,7 +36,7 @@ describe DockingStation do
   end
 
   it 'will not accept a bike if full' do
-    20.times { subject.dock(mockbike) }
+    DockingStation::DEFAULT_SIZE.times { subject.dock(mockbike) }
     expect{subject.dock(mockbike)}.to raise_error("dock full")
   end
 

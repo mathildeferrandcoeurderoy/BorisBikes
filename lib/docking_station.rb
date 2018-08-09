@@ -7,7 +7,7 @@ class DockingStation
   DEFAULT_SIZE = 20
 
   def capacity
-    @capacity = DEFAULT_SIZE
+    DEFAULT_SIZE
   end
 
   def initialize
